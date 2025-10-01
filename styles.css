@@ -13,7 +13,11 @@ body,
 #header,
 #main-content,
 #projects,
-#announcements-trending {
+#announcements-trending,
+#top-row,
+#bottom-row,
+#main-content,
+#title-content {
     display:grid;
 }
 
@@ -64,25 +68,89 @@ body {
     align-items: center;
 }
 
+#sidebar-options>div:hover {
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
 #sidebar-options img {
     filter: invert();    
     width: 2em;
     justify-self: start;
 }
 
-#header {
+#header {    
     border: 1px solid silver;
     grid-column: 2 / 3;
     border-radius: 0.5em;
     margin: 0.5em 0.5em;
 
-    grid-template: 1fr 1fr / repeat(5, 1fr);
+    height: 10em;
+
+    grid-template: 1fr 1fr / 1fr;
+}
+
+#top-row {
+    grid-template: 1fr / 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+#top-row img {
+    filter: invert();
+    width: 2em;
+}
+
+#top-row div {
+    /* border: 1px solid red; */
+}
+
+#search-bar {
+    background-color: silver;
+    border-radius: 2em;
+    height: 1em;
+    width: 10em
+}
+
+h3 {
+    padding-top: 0.5em;
+}
+
+#bottom-row {
+    grid-template: 1fr / 1fr 3fr 3fr;
+    align-items: center;
+}
+
+#bottom-row img {
+    width: 2em;
+    filter: invert();
+}
+
+#buttons {
+    justify-self: center;
+}
+
+#buttons button {
+    color: black;
+    background-color: red;
+    border-radius: 1em;
 }
 
 #main-content {
-    grid-template-columns: 3fr 1fr;
+    grid-template: auto 5fr / 3fr 1fr;
 }
 
+#title-content {
+    grid-column: 1 / 3;
+    grid-template: 1fr / 3fr 1fr;
+}
+
+#title-content div {
+    text-align: center;
+    font-size: 1.25em;
+}
+
+/* projects section */
 #projects {
     grid-template: 1fr 1fr 1fr / 1fr 1fr;
     grid-column: 1 / 1;
@@ -90,24 +158,67 @@ body {
     margin: 10px 5px 5px 10px;
 }
 
-#projects div {
+/* projects cards */
+#projects>div {
     border: 1px solid silver;
     border-radius: 0.5em;
-    place-content: center;
+
+    display: grid;
+
+    grid-template: auto 2fr 1fr / 1fr;
 }
 
+/* each icon in the bottom right of the card */
+#projects>div img {
+    width: 1.75em;
+    filter: invert();
+    padding: 0.75em;
+}
+
+#projects>div img:hover {
+    border: 2px solid;
+    border-radius: 0.5em;
+}
+
+/* bottom right icons */
+#projects div>div {
+    place-self: end;
+    padding-right: 2em;
+    padding-bottom: 1em;
+}
+
+/* headers in tbe project cards */
+#projects div h3 {
+    padding-left: 1.7em;
+}
+
+/* words in the project cards */
 #projects p {
     margin: 2em;
 }
 
+/* announcements / trending section */
 #announcements-trending {
-    grid-template: 1.5fr 1fr / 1fr;
+    grid-template: 1.5fr auto 1fr / 1fr;
     grid-column: 2 / 2;
     gap: 0.5em;
     margin: 0.5em 0.5em;
 }
 
 #announcements-trending div {
-    border: 1px solid silver;
     border-radius: 0.5em;
+}
+
+#announcements {
+    border: 1px solid;
+}
+
+/* trending header */
+#announcements-trending div~div  {
+    font-size: 1.25em;
+    text-align: center;
+}
+
+#trending {
+    border: 1px solid;
 }
