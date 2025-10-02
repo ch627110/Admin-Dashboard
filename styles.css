@@ -1,8 +1,15 @@
+html {
+    /* background-image: url('img/mike-hindle-Js5Qi_X1qzo-unsplash.jpg');
+    background-position: center;
+    background-size: cover; */
+    background-color:#2A363B;
+}
+
 * {
     font-family: "Michroma", sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: silver;
+    color: white;
 }
 
 body,
@@ -17,23 +24,26 @@ body,
 #top-row,
 #bottom-row,
 #main-content,
-#title-content {
+#title-content,
+#announcements,
+#trending,
+#trending>div {
     display:grid;
 }
 
 body {
     grid-template: 1fr 8fr / 1fr 5fr;
     height: 98vh;
-    background-color: black;
 }
 
 #sidebar {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
     grid-template: 1fr 9fr / 1fr;
-    border: 1px solid silver;
     border-radius: 0.5em;
     margin: 0.5em 0em;
+
+    padding: 0;
 }
 
 #logo {
@@ -41,6 +51,8 @@ body {
     align-items: center;
     border: 1px solid;
     border-radius: 0.5em;
+
+    height: 6.5em;
 }
 
 #logo img {
@@ -80,36 +92,52 @@ body {
 }
 
 #header {    
-    border: 1px solid silver;
     grid-column: 2 / 3;
     border-radius: 0.5em;
     margin: 0.5em 0.5em;
-
-    height: 10em;
-
+    height: 6.5em;
     grid-template: 1fr 1fr / 1fr;
 }
 
+/* top row of the header */
 #top-row {
-    grid-template: 1fr / 1fr 1fr;
-    justify-items: center;
+    grid-template: 1fr / 1fr 1fr 0.5fr;
     align-items: center;
+    padding-top: 1.5em;
 }
 
+/* top icons of the header */
 #top-row img {
     filter: invert();
-    width: 2em;
+    width: 3em;
 }
 
-#top-row div {
-    /* border: 1px solid red; */
+#top-row #search {
+    padding-left: 3em;
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
 }
 
-#search-bar {
-    background-color: silver;
-    border-radius: 2em;
-    height: 1em;
-    width: 10em
+#buttons~div {
+    gap: 20em;
+}
+
+#top-row div>div {
+    border: 1px solid;
+    border-radius: 1em;
+    height: 2em;
+    align-self: center;
+    width: 35em;
+    margin-left: 2em;
+}
+
+#top-row img:hover {
+    border: 1px solid black;
+    border-radius: 0.5em;
+}
+
+#top-row div>div:hover {
+    border: 2px solid;
 }
 
 h3 {
@@ -127,13 +155,17 @@ h3 {
 }
 
 #buttons {
-    justify-self: center;
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr;
+    padding-left: 10em;
+    padding-right: 10em;
+    gap: 0.5em;
 }
 
 #buttons button {
-    color: black;
-    background-color: red;
-    border-radius: 1em;
+    border-radius: 0.5em;
+    height: 2.5em;
+    width: 7.5em;
 }
 
 #main-content {
@@ -154,17 +186,14 @@ h3 {
 #projects {
     grid-template: 1fr 1fr 1fr / 1fr 1fr;
     grid-column: 1 / 1;
-    gap: 0.5em;
-    margin: 10px 5px 5px 10px;
+    gap: 1em;
+    margin: 1em 1em;
 }
 
 /* projects cards */
 #projects>div {
-    border: 1px solid silver;
     border-radius: 0.5em;
-
     display: grid;
-
     grid-template: auto 2fr 1fr / 1fr;
 }
 
@@ -202,23 +231,57 @@ h3 {
     grid-template: 1.5fr auto 1fr / 1fr;
     grid-column: 2 / 2;
     gap: 0.5em;
-    margin: 0.5em 0.5em;
-}
-
-#announcements-trending div {
-    border-radius: 0.5em;
+    margin: 1em 0em;
 }
 
 #announcements {
-    border: 1px solid;
+    border-radius: 0.5em;
+    grid-template-rows: repeat(auto-fit, minmax(1em, 1fr));
+    padding: 2em;
+}
+
+#announcements>div>div{
+    font-size: 1.25em;
+}
+
+#announcements>div>p{
+    font-size: 0.75em;
 }
 
 /* trending header */
-#announcements-trending div~div  {
-    font-size: 1.25em;
+#announcements+div  {
+    font-size: 1.5em;
     text-align: center;
+    margin-top: 1.5em;
 }
 
 #trending {
-    border: 1px solid;
+    border-radius: 0.5em;
+    grid-template-rows: repeat(auto-fit, minmax(1em, 1fr));
+    padding: 2em;
+}
+
+#trending>div {
+    height: auto;
+    grid-template: 1fr 1fr / 1fr 2fr;
+    align-items: center;
+}
+
+#trending>div>img {
+    grid-row: 1 / 3;
+    filter: invert();
+    width: 5em;
+}
+
+#trending p {
+    margin-top: 0;
+}
+
+#sidebar,
+#projects>div,
+#announcements,
+#trending,
+#top-row div>div,
+button {
+    background-color: rgba(0,0,0, 0.75);
 }
